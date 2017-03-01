@@ -47,3 +47,4 @@ extern void filtreur(long, double);
 extern void yk_xt(long, double, double);
 extern char *mod_nom(char *, char *);
 
+extern double hp3;

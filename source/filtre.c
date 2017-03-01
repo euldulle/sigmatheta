@@ -52,6 +52,8 @@ extern double hm3,hm2,hm1,h0,hp1,hp2,C1,C0;
 extern double tau0, vm_gauss, sigma_gauss;
 extern long GR;
 
+double hp3 = 0;
+
 /*	   This subroutine performs the Fourier transform of   		*/
 /*	   the double tables x[] and y[] containing 			*/
 /*	   respectively the real and the imaginary parts of 		*/
@@ -253,7 +255,7 @@ void filtreur(long nbr_dat, double tau0)
 
 	limite=nbr_dat/2;
 	pi=((double)4)*atan((double)1); /* Computation of pi.		    */
-	if ((hm3)||(hm2)||(hm1)||(hp1)||(hp2)) /* If only white noise is    */
+	if ((hm3)||(hm2)||(hm1)||(hp1)||(hp2)||(hp3)) /* If only white noise is    */
 /* needed, we don't have to filter the sequence!                            */
 		{
 		fft(nbr_dat,DIRECT);
@@ -268,7 +270,7 @@ void filtreur(long nbr_dat, double tau0)
 			cor=((double)i)/((double)nbr_dat);
 			Ri=cor/tau0;
 			R2i=Ri*Ri;
-			Rx=sqrt(fabs((double)(hm3/R2i/Ri + hm2/R2i + hm1/Ri + h0 + hp1*Ri + hp2*R2i))/tau0);
+			Rx=sqrt(fabs((double)(hm3/R2i/Ri + hm2/R2i + hm1/Ri + h0 + hp1*Ri + hp2*R2i + hp3*R2i*Ri))/tau0);
 			x[i]*=Rx;           /* "positive" frequencies */
 			y[i]*=Rx;
 			x[nbr_dat-i]*=Rx;   /* "negative" frequencies */
@@ -276,7 +278,7 @@ void filtreur(long nbr_dat, double tau0)
 			}
 		Ri=((double).5)/tau0;
 		R2i=Ri*Ri;
-		Rx=sqrt(fabs((double)(hm3/R2i/Ri + hm2/R2i + hm1/Ri + h0 + hp1*Ri + hp2*R2i))/tau0);
+		Rx=sqrt(fabs((double)(hm3/R2i/Ri + hm2/R2i + hm1/Ri + h0 + hp1*Ri + hp2*R2i + hp3*R2i*Ri))/tau0);
 		x[limite]*=Rx;
 		y[limite]*=Rx;
 		fft(nbr_dat,INVERSE); /* After filtering, the inverse FFT is computed.*/

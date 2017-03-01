@@ -134,6 +134,8 @@ main(int argc, char *argv[])
 	scanf("%lf",&hp1);
 	printf("\th+2  (f2 coef.):       ");
 	scanf("%lf",&hp2);
+	printf("\th+3  (f3 coef.):       ");
+	scanf("%lf",&hp3);
 /* The high cut-off frequency is not arbitrarily set at the Nyquist frequency 	*/
 /*	hp2*=tau0;								*/
 	printf("\tC1 (linear frequency drift coef.):   ");
@@ -170,6 +172,7 @@ main(int argc, char *argv[])
 	    fprintf(fiptyk,"%% h0   (constant coef.):..................... %24.16le\n",h0);
 	    fprintf(fiptyk,"%% h+1  (f coef.):............................ %24.16le\n",hp1);
 	    fprintf(fiptyk,"%% h+2  (f2 coef.):........................... %24.16le\n",hp2);
+	    fprintf(fiptyk,"%% h+3  (f3 coef.):........................... %24.16le\n",hp3);
 	    fprintf(fiptyk,"%% C1 (linear frequency drift coef.):......... %24.16le\n",C1);
 	    fprintf(fiptyk,"%% C0 (constant frequency drift coef.):....... %24.16le\n",C0);
 	    fprintf(fiptyk,"%% Initialization seed of the random sequence: %24ld\n",GR);
@@ -195,6 +198,7 @@ main(int argc, char *argv[])
 	    fprintf(fiptxt,"%% h0   (constant coef.):..................... %24.16le\n",h0);
 	    fprintf(fiptxt,"%% h+1  (f coef.):............................ %24.16le\n",hp1);
 	    fprintf(fiptxt,"%% h+2  (f2 coef.):........................... %24.16le\n",hp2);
+	    fprintf(fiptxt,"%% h+3  (f3 coef.):........................... %24.16le\n",hp3);
 	    fprintf(fiptxt,"%% C1 (linear frequency drift coef.):......... %24.16le\n",C1);
 	    fprintf(fiptxt,"%% C0 (constant frequency drift coef.):....... %24.16le\n",C0);
 	    fprintf(fiptxt,"%% Initialization seed of the random sequence: %24ld\n",GR);
